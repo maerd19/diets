@@ -1,5 +1,6 @@
 const passport = require('../helpers/passport');
 const User = require('../models/User');
+const zxcvbn = require('zxcvbn');
 // const { send } = require('../helpers/mailer');
 
 exports.login = (req, res) => {
@@ -9,6 +10,7 @@ exports.login = (req, res) => {
       return res.render('login', { errorMessage });
     }
 
+    console.log(req.login);
     req.login(user, err => {
       res.redirect('/profile');
     });
@@ -17,6 +19,13 @@ exports.login = (req, res) => {
 
 exports.signup = (req, res) => {
   let { username, password, email } = req.body;
+  let { score, feedback } = zxcvbn(password);
+  
+  console.log(zxcvbn(password));
+  if (score == 0) {
+    let errorMessage = `${feedback.warning}. ${feedback.suggestions.reduce( (acc, cur) => acc + cur, '')}`;
+    return res.render('register', { title: 'Sign Up', errorMessage });
+  }
 
   if (password !== req.body['confirm-pass']) {
     let errorMessage = 'Make sure to enter the same password';
@@ -42,7 +51,7 @@ exports.signup = (req, res) => {
       //     return res.render('register', { title: 'Sign Up', errorMessage });
       //   res.redirect('/home');
       // });
-      req.login(user, err => {
+      req.login(usr, err => {
         res.redirect("/home");
       });
     })

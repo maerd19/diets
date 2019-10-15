@@ -10,7 +10,7 @@ const path         = require('path');
 
 
 mongoose
-  .connect('mongodb://localhost/module2', {useNewUrlParser: true})
+  .connect('mongodb://localhost/module2', {useNewUrlParser: true, useUnifiedTopology: true})
   // .connect(process.env.DB, {
   //   useNewUrlParser: true,
   //   useUnifiedTopology: true

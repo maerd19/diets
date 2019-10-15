@@ -1,27 +1,29 @@
 mixin authform(register, error)
-  form(action=register ? "/signup" : "/login" class="uk-form-stacked" method="post")
+  form(action=register ? "/signup" : "/login" class="uk-form-stacked" method="post" id='myForm' class='#{register}')
     if register
       .uk-margin
         label(class="uk-form-label" for="username") Username
         .uk-inline
           span.uk-form-icon(uk-icon='icon: user')
-          input.uk-input(type='text' name='username')
+          input.uk-input(type='text' name='username' id='username')
     .uk-margin
       label(class='uk-form-label' for='email') Email
       .uk-inline
         span.uk-form-icon(uk-icon='icon: mail')
-        input.uk-input(type='email' name='email')
+        input.uk-input(type='email' name='email' id='email')
     .uk-margin
       label(class='uk-form-label' for='password') Password
       .uk-inline
         span.uk-form-icon(uk-icon='icon: lock')
-        input.uk-input(type='password' name='confirm-pass')
+        //- input.uk-input(type='password' name='password' id='password' title='Password must contain at least 6 characters, including UPPER/lowercase and numbers.' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}')
+        input.uk-input(type='password' name='password' id='password')
     if register
       .uk-margin
-        label(class="uk-form-label" for="username") Confirm password
+        label(class="uk-form-label" for="confirm-pass") Confirm password
         .uk-inline
           span.uk-form-icon(uk-icon='icon: lock')
-          input.uk-input(type='password' name='confirm-pass')
+          //- input.uk-input(type='password' name='confirm-pass' id='confirm-pass' title='Please enter the same Password as above.' required pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}')
+          input.uk-input(type='password' name='confirm-pass' id='confirm-pass')
     if errorMessage
       .uk-alert-danger.uk-width-1-1(uk-alert)
         p #{errorMessage}
