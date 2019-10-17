@@ -21,7 +21,7 @@ exports.signup = (req, res) => {
   let { username, password, email } = req.body;
   let { score, feedback } = zxcvbn(password);
   
-  console.log(zxcvbn(password));
+  // console.log(zxcvbn(password));
   if (score == 0) {
     let errorMessage = `${feedback.warning}. ${feedback.suggestions.reduce( (acc, cur) => acc + cur, '')}`;
     return res.render('register', { title: 'Sign Up', errorMessage });
@@ -39,20 +39,8 @@ exports.signup = (req, res) => {
 
   User.register({ username, email }, password)
     .then(usr => {
-      // const options = {
-      //   filename: 'register',
-      //   email: usr.email,
-      //   message: 'Valida tu correo',
-      //   subject: 'Confirma correo'
-      // };
-      // send(options);
-      // req.login(usr, errorMessage => {
-      //   if (errorMessage)
-      //     return res.render('register', { title: 'Sign Up', errorMessage });
-      //   res.redirect('/home');
-      // });
       req.login(usr, err => {
-        res.redirect("/home");
+        res.redirect("/objectives");
       });
     })
     .catch(errorMessage => {

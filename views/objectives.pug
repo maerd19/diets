@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  section.uk-section
+    .uk-container.uk-flex.uk-flex-center
+      .uk-width-1-2.uk-flex.uk-flex-center
+        form(action="/objectives", method="post")
+          //- Gender
+          .uk-margin
+          label(class='uk-form-label' for='gender') Gender
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: users')
+            input.uk-input(type='text' name='gender' id='gender')
+          //- Age
+          .uk-margin
+          label(class='uk-form-label' for='age') Age
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: clock')
+            input.uk-input(type='text' name='age' id='age')
+          //- weight
+          .uk-margin
+          label(class='uk-form-label' for='weight') Weight
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: shrink')
+            input.uk-input(type='text' name='weight' id='weight')
+          //- height
+          .uk-margin
+          label(class='uk-form-label' for='height') Height
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: expand')
+            input.uk-input(type='text' name='height' id='height')
+          //- exercise
+          .uk-margin
+          label(class='uk-form-label' for='exercise') Exercise
+          .uk-inline
+            span.uk-form-icon(uk-icon='icon: expand')
+            input.uk-input(type='text' name='exercise' id='exercise')
+          if errorMessage
+            .uk-alert-danger.uk-width-1-1(uk-alert)
+              p #{errorMessage}
+          button.uk-button.uk-button-primary Register objectives
+          
