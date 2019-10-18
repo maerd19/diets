@@ -23,11 +23,12 @@ router.get("/home", isAuth, (req, res) => {
 });
 
 router.get("/profile", isAuth, objectivesFilled, (req, res) => {
-  // const { user } = req;
-  // Auction.find({ author: user._id }).then(auctions => {
-  //   res.render("profile", { user, auctions });
-  // });
-  res.render('profile');
+  console.log(req.user);  
+  const { user } = req;
+  Auction.find({ author: user._id }).then(auctions => {
+    res.render("profile", { user, auctions });
+  });
+ res.render('profile');
 });
 
 module.exports = router;

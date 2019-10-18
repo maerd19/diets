@@ -11,3 +11,4 @@ router.get('/objectives', isAuth, (req, res, next) => {
 router.post('/objectives', isAuth, objectivesControllers.registerObjectivesInfo);
 
 // Que pasa si se modifican los objectivos?
+module.exports = router;
