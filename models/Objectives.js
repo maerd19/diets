@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-const passportLocalMongoose = require("passport-local-mongoose");
 
 const objectivesShema = new Schema(
   {
     gender: {
       type: String,
+      enum: ['man', 'woman'],
       required: true
     },
     age: {
@@ -27,9 +27,13 @@ const objectivesShema = new Schema(
     objectives: {
       type: String,
       required: true
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     }
   },
   { timestamps: true }
 );
 
-module.exports = model("Ojectives", objectivesShema);
+module.exports = model("Objectives", objectivesShema);
