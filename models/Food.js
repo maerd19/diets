@@ -7,17 +7,22 @@ const foodsSchema = new Schema(
       type: String,
       required: true
     },
-    ingredientes: {
+    day: {
+      type: String,
+      required: true
+    },
+    Ingredientes: {
       type: [String],
       required: true
     },
     schedule: {
       type: String,
       required: true
-    },
+    },    
     diet: {
-      type: Schema.Types.ObjectId,
-      reference: "Menus",
+      // type: Schema.Types.ObjectId,
+      // reference: "Menus",
+      type: String,
       required: true
     },
     photo: {

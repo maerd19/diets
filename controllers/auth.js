@@ -39,10 +39,24 @@ exports.signup = (req, res) => {
 
   User.register({ username, email }, password)
     .then(usr => {
-      req.login(usr, err => {
-        res.redirect("/objectives");
+      const options = {
+        filename: "register",
+        email: usr.email,
+        message: "Valida tu correo",
+        subject: "Confirma correo"
+      };
+      send(options);
+      req.login(usr, errorMessage => {
+        if (errorMessage)
+          return res.render("register", { title: "Sign Up", errorMessage });
+        res.redirect("/home");
       });
     })
+    // .then(usr => {
+    //   req.login(usr, err => {
+    //     res.redirect("/objectives");
+    //   });
+    // })
     .catch(errorMessage => {
       res.render('register', { title: 'Sign Up', errorMessage })
     });
