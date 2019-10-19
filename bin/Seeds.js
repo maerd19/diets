@@ -9,7 +9,7 @@ const foods = [
 	{
 		"name": "Tortilla de queso, espinacas y aceitunas",
 		"day": "lunes",
-		"Ingredientes": ["Huevo", "queso", "espinaca", "aceituna"],
+		"ingredientes": ["Huevo", "queso", "espinaca", "aceituna"],
 		"schedule": "desayuno",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -17,7 +17,7 @@ const foods = [
 	{
 		"name": "Crepas con mantequilla de almendra",
 		"day": "Martes",
-		"Ingredientes": ["Huevo", "harina", "almendra", "leche", "deslactosada","mantequilla"],
+		"ingredientes": ["Huevo", "harina", "almendra", "leche deslactosada","mantequilla"],
 		"schedule": "desayuno",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -25,7 +25,7 @@ const foods = [
 	{
 		"name": "Huevos fritos con tocino",
 		"day": "Miercoles",
-		"Ingredientes": ["Huevo", "aceite", "vegetal", "tocino", "normal"],
+		"ingredientes": ["Huevo", "aceite", "vegetal", "tocino normal"],
 		"schedule": "desayuno",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -33,7 +33,7 @@ const foods = [
 	{
 		"name": "Huevos revueltos",
 		"day": "Jueves",
-		"Ingredientes": ["huevo", "mantequilla"],
+		"ingredientes": ["huevo", "mantequilla"],
 		"schedule": "desayuno",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -41,7 +41,7 @@ const foods = [
 	{
 		"name": "Wrap de salmon ahumado con aguacate",
 		"day": "Viernes",
-		"Ingredientes": ["tortilla", "salmon", "ahumado", "aguacate"],
+		"ingredientes": ["tortilla", "salmon ahumado", "aguacate"],
 		"schedule": "desayuno",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -49,7 +49,7 @@ const foods = [
 	{
 		"name": "Hotcakes",
 		"day": "Sabado",
-		"Ingredientes": ["Huevo", "requeson", "mantequilla", "arandanos", "crema", "batida"],
+		"ingredientes": ["Huevo", "requeson", "mantequilla", "arandanos", "crema", "batida"],
 		"schedule": "desayuno",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -57,7 +57,7 @@ const foods = [
 	{
 		"name": "Ensalada de carne de res",
 		"day": "Lunes",
-		"Ingredientes": ["aceite de sesamo", "jugo de limon", "tomate cherry", "bife de chorizo", "pepino", "lechuga", "cebolla", "cilantro", "semillas de sesamo"],
+		"ingredientes": ["aceite de sesamo", "jugo de limon", "tomate cherry", "bife de chorizo", "pepino", "lechuga", "cebolla", "cilantro", "semillas de sesamo"],
 		"schedule": "comida",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -65,7 +65,7 @@ const foods = [
 	{
 		"name": "Omelet",
 		"day": "Martes",
-		"Ingredientes": ["Huevo", "mantequilla", "tomate cherry", "albaca", "queso mozarella"],
+		"ingredientes": ["Huevo", "mantequilla", "tomate cherry", "albaca", "queso mozarella"],
 		"schedule": "comida",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -73,7 +73,7 @@ const foods = [
 	{
 		"name": "Ensalada de aguacate y tocino",
 		"day": "Miercoles",
-		"Ingredientes": ["limon", "mayonesa", "aceite de aguacate", "crema para batir", "queso de cabra", "tocino", "aguacate", "arugula", "nueces"],
+		"ingredientes": ["limon", "mayonesa", "aceite de aguacate", "crema para batir", "queso de cabra", "tocino", "aguacate", "arugula", "nueces"],
 		"schedule": "comida",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -81,7 +81,7 @@ const foods = [
 	{
 		"name": "Plato de salmon",
 		"day": "Jueves",
-		"Ingredientes": ["salmon", "ahumado", "mayonesa", "espinacas", "aceite de oliva"],
+		"ingredientes": ["salmon", "ahumado", "mayonesa", "espinacas", "aceite de oliva"],
 		"schedule": "comida",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -89,7 +89,7 @@ const foods = [
 	{
 		"name": "Sopa de pollo",
 		"day": "Viernes",
-		"Ingredientes": ["mantequilla", "apio",  "zetas", "ajo", "cebolla", "perejil", "pimienta negra", "caldo de pollo", "zanahoria", "pollo desmenusado"],
+		"ingredientes": ["mantequilla", "apio",  "zetas", "ajo", "cebolla", "perejil", "pimienta negra", "caldo de pollo", "zanahoria", "pollo desmenusado"],
 		"schedule": "comida",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -97,7 +97,7 @@ const foods = [
 	{
 		"name": "Quesadillas",
 		"day": "Sabado",
-		"Ingredientes": ["huevos", "queso crema", "queso canasta", "aceite de oliva"],
+		"ingredientes": ["huevos", "queso crema", "queso canasta", "aceite de oliva"],
 		"schedule": "comida",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -105,7 +105,7 @@ const foods = [
 	{
 		"name": "Pollo con pesto",
 		"day": "Lunes",
-		"Ingredientes": ["pollo", "aceite de oliva", "pesto rojo", "crema para batir", "aceitunas", "queso feta", "diente de ajo"],
+		"ingredientes": ["pollo", "aceite de oliva", "pesto rojo", "crema para batir", "aceitunas", "queso feta", "diente de ajo"],
 		"schedule": "cena",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -113,7 +113,7 @@ const foods = [
 	{
 		"name": "Pastel de carne",
 		"day": "Martes",
-		"Ingredientes": ["almendra molida", "semilla de sesamo", "harina de almendra", "bicarbonato", "aceite de coco", "huevo", "agua", "requeson", "queso rayado", "carne molida", "albahaca"],
+		"ingredientes": ["almendra molida", "semilla de sesamo", "harina de almendra", "bicarbonato", "aceite de coco", "huevo", "agua", "requeson", "queso rayado", "carne molida", "albahaca"],
 		"schedule": "cena",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -121,7 +121,7 @@ const foods = [
 	{
 		"name": "Pizza",
 		"day": "Miercoles",
-		"Ingredientes": ["Huevo", "queso mozzarella", "tomate", "oregano", "aceitunas", "aceite de oliva"],
+		"ingredientes": ["Huevo", "queso mozzarella", "tomate", "oregano", "aceitunas", "aceite de oliva"],
 		"schedule": "cena",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -129,7 +129,7 @@ const foods = [
 	{
 		"name": "Tacos",
 		"day": "Jueves",
-		"Ingredientes": ["Tortilla", "Queso crema", "res", "aguacate", "tomate", "limon", "cilantro"],
+		"ingredientes": ["Tortilla", "Queso crema", "res", "aguacate", "tomate", "limon", "cilantro"],
 		"schedule": "cena",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -137,7 +137,7 @@ const foods = [
 	{
 		"name": "Chuletas de cerdo",
 		"day": "Viernes",
-		"Ingredientes": ["chulata de cerdo", "mantequilla", "ejotes", "perejil", "limon"],
+		"ingredientes": ["chulata de cerdo", "mantequilla", "ejotes", "perejil", "limon"],
 		"schedule": "cena",
 		"diet": "Keto",
 		"Photo": "foto"
@@ -145,7 +145,7 @@ const foods = [
 	{
 		"name": "Hamburguesas",
 		"day": "Sabado",
-		"Ingredientes": ["cordero", "queso feta", "perejil", "aceite de oliva", "crema", "tomate", "lechuga"],
+		"ingredientes": ["cordero", "queso feta", "perejil", "aceite de oliva", "crema", "tomate", "lechuga"],
 		"schedule": "cena",
 		"diet": "Keto",
 		"Photo": "foto"
