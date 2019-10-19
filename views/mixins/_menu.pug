@@ -1,54 +1,15 @@
-mixin menu(days,error)
+mixin menu(days)
   h1 {Days}
   section
-    .class='uk-child-width-1-2@m', uk-grid=''
+    div(class='uk-child-width-1-2@m', uk-grid='')
       div
         .uk-card.uk-card-default
           .uk-card-media-top
            img(src='images/light.jpg', alt='')
         .uk-card-body
-          h3.uk-card-title Media Top
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-      div
-        .uk-card.uk-card-default
-          .uk-card-body
-            h3.uk-card-title Media Bottom
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-            .uk-card-media-bottom
-              img(src='images/light.jpg', alt='')
-      .class='uk-child-width-1-2@m', uk-grid=''
-            div
-              .uk-card.uk-card-default
-                .uk-card-media-top
-                img(src='images/light.jpg', alt='')
-              .uk-card-body
-                h3.uk-card-title Media Top
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-            div
-              .uk-card.uk-card-default
-                .uk-card-body
-                  h3.uk-card-title Media Bottom
-                  p
-                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                  .uk-card-media-bottom
-                    img(src='images/light.jpg', alt='')
-      .class='uk-child-width-1-2@m', uk-grid=''
-            div
-              .uk-card.uk-card-default
-                .uk-card-media-top
-                img(src='images/light.jpg', alt='')
-              .uk-card-body
-                h3.uk-card-title Media Top
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-            div
-              .uk-card.uk-card-default
-                .uk-card-body
-                  h3.uk-card-title Media Bottom
-                  p
-                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                  .uk-card-media-bottom
-                    img(src='images/light.jpg', alt='')
+          h1=days.name 
+          h3.uk-card-title=days.schedule
+          ul
+            each ingredient in days.Ingredientes
+              li=ingredient
+    

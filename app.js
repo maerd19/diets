@@ -80,10 +80,12 @@ const index = require("./routes/index");
 const auth = require("./routes/auth");
 const objectives = require("./routes/objectives");
 const days = require("./routes/days");
+const menu = require("./routes/menu");
 
 app.use("/", index);
 app.use("/", auth);
 app.use("/", objectives);
 app.use("/", days);
+app.use("/", menu);
 
 module.exports = app;
