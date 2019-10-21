@@ -1,5 +1,5 @@
 const Food = require("../models/Food");
-const { isAuth } = require("../helpers/authMiddlewares");
+// const { isAuth } = require("../helpers/authMiddlewares");
 
 exports.getAllFood = (req, res) => {
   Food.find()

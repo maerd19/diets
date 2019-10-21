@@ -4,7 +4,6 @@ const { Schema, model } = mongoose;
 const menusSchema = new Schema(
   { 
     name: String,
-
     ranking: Number
   },
   { timestamps: true }

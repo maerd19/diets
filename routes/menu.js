@@ -5,13 +5,13 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(menuController.getAllFood)
-  .post(menuController.createFood)
+  .get(menuController.getAllMenus)
+  .post(menuController.createMenu)
 
 router
   .route('/:id')
-  .get(menuController.getFood)
-  .patch(menuController.updateFood)
-  .delete(menuController.deleteFood);
+  .get(menuController.getMenu)
+  .patch(menuController.updateMenu)
+  .delete(menuController.deleteMenu);
 
 module.exports = router;

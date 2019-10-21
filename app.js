@@ -74,15 +74,15 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // routes
-const index = require("./routes/index");
-const auth = require("./routes/auth");
+// const index = require("./routes/index");
+// const auth = require("./routes/auth");
 const objectives = require("./routes/objectives");
 const food = require("./routes/food");
 const menu = require("./routes/menu");
 
-app.use("/", index);
-app.use("/", auth);
-app.use("/", objectives);
+// app.use("/", index);
+// app.use("/", auth);
+app.use("/objectives", objectives);
 app.use("/foods", food);
 app.use("/menus", menu);
 

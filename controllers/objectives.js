@@ -1,5 +1,9 @@
 const Objectives = require('../models/Objectives');
 
+exports.displayRegisterObjectives = (req, res) => {
+  res.render('objectives');
+}
+
 exports.registerObjectivesInfo = (req, res) => {
   const { gender, age, weight, height, exercise, objectives } = req.body;
   const { user: { _id: user } } = req;

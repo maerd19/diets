@@ -1,14 +1,15 @@
 const express = require('express');
+const objectivesControllers = require('./../controllers/objectives');
+
 const router = express.Router();
-const objectivesControllers = require('../controllers/objectives');
-const { isAuth } = require('../helpers/authMiddlewares');
+// const { isAuth } = require('../helpers/authMiddlewares');
 
-// register objectives
-router.get('/objectives', isAuth, (req, res, next) => {
-  res.render('objectives');
-});
+router
+  .route('/')
+  // .get(isAuth, objectivesControllers.displayRegisterObjectives)
+  // .post(isAuth, objectivesControllers.registerObjectivesInfo);
+  .get(objectivesControllers.displayRegisterObjectives)
+  .post(objectivesControllers.registerObjectivesInfo);
+  
 
-router.post('/objectives', isAuth, objectivesControllers.registerObjectivesInfo);
-
-// Que pasa si se modifican los objectivos?
 module.exports = router;

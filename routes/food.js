@@ -1,17 +1,17 @@
 const express = require("express");
-const foodController = require('../controllers/food');
+const foodController = require('./../controllers/food');
 
 const router = express.Router();
 
 router
   .route('/')
-  .get(foodController.getAllMenus)
-  .post(foodController.createMenu)
+  .get(foodController.getAllFood)
+  .post(foodController.createFood)
 
 router
   .route('/:id')
-  .get(foodController.getMenu)
-  .patch(foodController.updateMenu)
-  .delete(foodController.deleteMenu);
+  .get(foodController.getFood)
+  .patch(foodController.updateFood)
+  .delete(foodController.deleteFood);
 
 module.exports = router;
