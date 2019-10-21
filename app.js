@@ -73,19 +73,17 @@ app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
-// default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
-
+// routes
 const index = require("./routes/index");
 const auth = require("./routes/auth");
 const objectives = require("./routes/objectives");
-const days = require("./routes/days");
+const food = require("./routes/food");
 const menu = require("./routes/menu");
 
 app.use("/", index);
 app.use("/", auth);
 app.use("/", objectives);
-app.use("/", days);
-app.use("/", menu);
+app.use("/foods", food);
+app.use("/menus", menu);
 
 module.exports = app;

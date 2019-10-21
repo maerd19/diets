@@ -1,20 +1,17 @@
 const express = require("express");
-const router = express.Router();
-const Food = require("../models/Food");
-const { isAuth } = require("../helpers/authMiddlewares");
+const menuController = require('../controllers/menu');
 
-router.get("/menu_day/:day", isAuth, (req, res) => {
-  const { day } = req.params;
-  console.log("days", day);
-  console.log("params", req.params);
-  Food.find({ day: day })
-    .then(days => {
-      console.log(days);
-      res.render("daily_menu", { days });
-    })
-    .catch(error => {
-      throw new Error(`Impossible to add the author. ${error}`);
-    });
-});
+const router = express.Router();
+
+router
+  .route('/')
+  .get(menuController.getAllFood)
+  .post(menuController.createFood)
+
+router
+  .route('/:id')
+  .get(menuController.getFood)
+  .patch(menuController.updateFood)
+  .delete(menuController.deleteFood);
 
 module.exports = router;

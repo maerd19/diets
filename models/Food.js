@@ -11,7 +11,7 @@ const foodsSchema = new Schema(
       type: String,
       required: true
     },
-    Ingredientes: {
+    ingredientes: {
       type: [String],
       required: true
     },

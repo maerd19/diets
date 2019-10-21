@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const menusSchema = new Schema(
-  {
-    reference: Number,
+  { 
+    name: String,
 
     ranking: Number
   },
