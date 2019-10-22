@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1 Menus
+
+  a(href="/menus/form") Creat Menu
+
+  //- table(style='width:100%')
+  table#myTable  
+    thead
+      tr
+        th Nombre
+        th Dia
+        th Ingredientes
+        th Horario
+        th Dieta
+
+    tbody
+      each food in foods
+        tr
+          td=food.name
+          td=food.day
+          td=food.ingredientes
+          td=food.schedule
+          td=food.diet
+          td
+            a(href="/") Read
+            a(href="/") Edit
+            a(href="/") Delete

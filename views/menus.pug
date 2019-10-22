@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 Menus
+
+  a(href="/menus/form") Creat Menu
+
+  //- table(style='width:100%')
+  table#myTable  
+    thead
+      tr
+        th Name
+        th Ranking
+        th Actions
+    tbody
+      each menu in menus
+        tr
+          td=menu.name
+          td=menu.ranking
+          td
+            a(href="/foods/form") Create Food
+            a(href="/") Read
+            a(href="/") Edit
+            a(href="/") Delete

@@ -4,13 +4,18 @@ const { isAuth } = require("../helpers/authMiddlewares");
 exports.getAllMenus = (req, res) => {
   Menu.find()
     .then(allTheMenusFromDB => {
-      // res.render('menus', { menus: allTheMenusFromDB });
-      res.status(200).json({ allTheMenusFromDB });
+      console.log(allTheMenusFromDB);
+      res.render('menus', { menus: allTheMenusFromDB });
+      // res.status(200).json({ allTheMenusFromDB });
     })
     .catch(error => {
       console.log('Error while getting the menus from the DB: ', error);
     })
 };
+
+exports.createMenuForm = (req, res) => {
+  res.render('menu-form');
+}
 
 exports.getMenu = (req, res) => {
   const { id } = req.params;
@@ -29,7 +34,7 @@ exports.createMenu = (req, res) => {
   Menu.create({ name, ranking }) 
     .then(menu => {
     res.status(200).json({ menu });
-    // res.redirect('/foods');
+    // res.redirect('/menus');
     })
 };
 

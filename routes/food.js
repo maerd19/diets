@@ -14,4 +14,8 @@ router
   .patch(foodController.updateFood)
   .delete(foodController.deleteFood);
 
+router
+  .route('/form')
+  .get(foodController.createFoodForm)
+
 module.exports = router;

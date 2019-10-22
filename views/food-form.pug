@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  form(action="/foods" class="uk-form-stacked" method="post" id='myForm')
+    .uk-margin
+      label(class="uk-form-label" for="name") Platillo
+      .uk-inline
+        span.uk-form-icon(uk-icon='icon: user')
+        input.uk-input(type='text' name='name' id='name')
+    .uk-margin
+      label(class="uk-form-label" for="day") Dia
+      .uk-inline
+        span.uk-form-icon(uk-icon='icon: user')
+        input.uk-input(type='text' name='day' id='day')
+    .uk-margin
+      label(class="uk-form-label" for="ingredientes") Ingredientes
+      .uk-inline
+        span.uk-form-icon(uk-icon='icon: user')
+        input.uk-input(type='text' name='ingredientes' id='ingredientes')
+    .uk-margin
+      label(class="uk-form-label" for="schedule") Horario
+      .uk-inline
+        span.uk-form-icon(uk-icon='icon: user')
+        input.uk-input(type='text' name='schedule' id='schedule')  
+    if errorMessage
+      .uk-alert-danger.uk-width-1-1(uk-alert)
+        p #{errorMessage}
+    button.uk-button.uk-button-primary Register

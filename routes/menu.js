@@ -14,4 +14,8 @@ router
   .patch(menuController.updateMenu)
   .delete(menuController.deleteMenu);
 
+router
+  .route('/form')
+  .get(menuController.createMenuForm)
+
 module.exports = router;
