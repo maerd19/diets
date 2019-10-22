@@ -9,7 +9,15 @@ router
   // .get(isAuth, objectivesControllers.displayRegisterObjectives)
   // .post(isAuth, objectivesControllers.registerObjectivesInfo);
   .get(objectivesControllers.displayRegisterObjectives)
-  .post(objectivesControllers.registerObjectivesInfo);
+  .post(objectivesControllers.registerObjectivesInfo)
+
+router
+  .route('/view/')
+  .get(objectivesControllers.renderView);
+
+  // router
+  // .route('/:id')
+  // .get(objectivesControllers.displayRegisterObjectives);
   
 
 module.exports = router;

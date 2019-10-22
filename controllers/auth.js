@@ -39,12 +39,13 @@ exports.signup = (req, res) => {
 
   User.register({ username, email }, password)
     .then(usr => {
-      const options = {
-        filename: "register",
-        email: usr.email,
-        message: "Valida tu correo",
-        subject: "Confirma correo"
-      };
+      res.render('objectives')
+      // const options = {
+      //   filename: "register",
+      //   email: usr.email,
+      //   message: "Valida tu correo",
+      //   subject: "Confirma correo"
+      // };
       send(options);
       req.login(usr, errorMessage => {
         if (errorMessage)

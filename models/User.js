@@ -18,7 +18,16 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    profile_picture: String
+    profile_picture: String,
+    type: {
+      enum: ['user', 'admin'],
+      default: "user",
+      type: String
+    },
+    diet: {
+      type: Schema.Types.ObjectId,
+      ref: 'Menus'
+    }
   }, 
   { timestamps: true }
 );

@@ -20,10 +20,10 @@ const foodsSchema = new Schema(
       required: true
     },    
     diet: {
-      // type: Schema.Types.ObjectId,
-      // reference: "Menus",
-      type: String,
-      required: true
+      type: Schema.Types.ObjectId,
+      reference: "Menus",
+      // type: String,
+      // required: true
     },
     photo: {
       type: [String],
