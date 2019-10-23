@@ -15,20 +15,22 @@ exports.displayRegisterObjectives = (req, res) => {
 }
 
 exports.renderView = (req, res) => {
-  console.log('redner views')
-  res.render('register');
-  // res.render("register", { title: "Sign Up", errorMessage });
+  res.render('objectives');
 }
 
 exports.registerObjectivesInfo = (req, res) => {
-  const { gender, age, weight, height, exercise, objectives } = req.body;
+  // console.log(req.body);
+  
+  let { gender, age, weight, height, exercise, objectives } = req.body;
   // const { gender, age, weight, height, exercise, objectives, user } = req.body;
-  const { user: { _id: user } } = req;
+  // const { user: { _id: user } } = req;
 
   if (!gender || !age || !weight || !height || !exercise || !objectives) {
     let errorMessage = 'All fields are required to be filled';
     return res.render('objectives', { title: 'Objectives', errorMessage });
   }
+
+  exercise = (exercise == 'Si') ? true : false;
 
   objectives = {
     gender,
@@ -36,13 +38,14 @@ exports.registerObjectivesInfo = (req, res) => {
     weight, 
     height, 
     exercise, 
-    objectives,
-    user
+    objectives/*,
+    user*/
   }
+
+  console.log(objectives);
 
   Objectives.create(objectives)
     .then(objective => {
-      User.
       res.redirect("/profile");
       // res.status(200).json({ objective });
     })

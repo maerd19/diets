@@ -79,11 +79,13 @@ const auth = require("./routes/auth");
 const objectives = require("./routes/objectives");
 const food = require("./routes/food");
 const menu = require("./routes/menu");
+const profile = require("./routes/profile");
 
 // app.use("/", index);
 app.use("/", auth);
 app.use("/menus", menu);
 app.use("/foods", food);
 app.use("/objectives", objectives);
+app.use("/profile", profile);
 
 module.exports = app;
