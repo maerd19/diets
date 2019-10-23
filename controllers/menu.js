@@ -56,11 +56,14 @@ exports.updateMenu = (req, res) => {
 };
 
 exports.deleteMenu = (req, res) => {
+  console.log('ya se va :( ')
   const { id } = req.params;
-  Menu.findByIdAndDelete(id).then(() => {
-    res.status(200).json({ 
-      "message" : "The register has been deleted"
-     });
-    // res.redirect("/foods");
+  Menu.findByIdAndDelete(id)
+    .then(() => {
+      // res.status(200).json({ 
+      //   "message" : "The register has been deleted"
+      //  });
+      console.log('ya se va :( ')
+      res.redirect("/menus");
   });
 };

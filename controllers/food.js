@@ -14,6 +14,7 @@ exports.getAllFood = (req, res) => {
 };
 
 exports.createFoodForm = (req, res) => {
+  const { id } = req.params;
   res.render('food-form');
 }
 

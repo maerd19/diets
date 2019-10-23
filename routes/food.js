@@ -9,7 +9,7 @@ router
   .post(foodController.createFood)
 
 router
-  .route('/form')
+  .route('/form/:id')
   .get(foodController.createFoodForm)
 
 router

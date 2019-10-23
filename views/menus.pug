@@ -18,6 +18,6 @@ block content
           td=menu.name
           td=menu.ranking
           td
-            a(href="/foods/form") Create Food
+            a(href=`/foods/form/${menu._id}`) Create Food
             a(href="/") Edit
-            a(href="/menus/#{menu._id}") Delete
+            a(href=`/menus/delete/${menu._id}`) Delete

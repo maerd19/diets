@@ -12,10 +12,15 @@ router
   .route('/form')
   .get(menuController.createMenuForm)
 
+
 router
+  .route('/delete/:id')
+  .get(menuController.deleteMenu);
+
+  router
   .route('/:id')
   .get(menuController.getMenu)
   .patch(menuController.updateMenu)
-  .delete(menuController.deleteMenu);
+
 
 module.exports = router;
