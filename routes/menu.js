@@ -9,13 +9,13 @@ router
   .post(menuController.createMenu)
 
 router
+  .route('/form')
+  .get(menuController.createMenuForm)
+
+router
   .route('/:id')
   .get(menuController.getMenu)
   .patch(menuController.updateMenu)
   .delete(menuController.deleteMenu);
-
-router
-  .route('/form')
-  .get(menuController.createMenuForm)
 
 module.exports = router;

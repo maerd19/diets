@@ -33,8 +33,11 @@ exports.createMenu = (req, res) => {
   const { name, ranking } = req.body;
   Menu.create({ name, ranking }) 
     .then(menu => {
-    res.status(200).json({ menu });
-    // res.redirect('/menus');
+      // res.status(200).json({ menu });
+      res.redirect('/menus');
+    })
+    .catch(error => {
+      console.log('Error while inserting menu. Details: ', error);
     })
 };
 

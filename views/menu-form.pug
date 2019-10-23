@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 alta de menus
+  a(href="/menus") Regresar
+
+  .uk-flex.uk-flex-center
+    form(action="/menus" class="uk-form-stacked" method="post" id='myForm')
+      .uk-margin
+        label(class="uk-form-label" for="name") Nombre menu
+        .uk-inline
+          span.uk-form-icon(uk-icon='icon: tag')
+          input.uk-input(type='text' name='name' id='name')
+      .uk-margin
+        label(class="uk-form-label" for="ranking") Ranking
+        .uk-inline
+          span.uk-form-icon(uk-icon='icon: bell')
+          input.uk-input(type='text' name='ranking' id='ranking')      
+      if errorMessage
+        .uk-alert-danger.uk-width-1-1(uk-alert)
+          p #{errorMessage}
+      button.uk-button.uk-button-primary Register
+

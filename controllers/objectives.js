@@ -42,6 +42,7 @@ exports.registerObjectivesInfo = (req, res) => {
 
   Objectives.create(objectives)
     .then(objective => {
+      User.
       res.redirect("/profile");
       // res.status(200).json({ objective });
     })
