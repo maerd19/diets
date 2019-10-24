@@ -1,5 +1,7 @@
 const express = require('express');
 const router  = express.Router();
+const Foods = require('../models/Food');
+
 const { isAuth, objectivesFilled } = require("../helpers/authMiddlewares");
 
 /* GET home page */
@@ -14,10 +16,10 @@ router.get("/home", isAuth, (req, res) => {
 router.get("/profile", isAuth, objectivesFilled, (req, res) => {
   console.log(req.user);  
   const { user } = req;
-  Auction.find({ author: user._id }).then(auctions => {
-    res.render("profile", { user, auctions });
-  });
- res.render('profile');
+  Foods.find({ diet:user.diet })
+    .then(foods => {
+      res.render("profile", { user, foods });
+    });
 });
 
 module.exports = router;

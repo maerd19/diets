@@ -13,8 +13,18 @@ exports.login = (req, res) => {
     }
     
     req.login(user, err => {
-      console.log('user', user);
-      (!user.objetivos_verificados) ? res.redirect('/objectives/view') : res.redirect('/profile');
+      // console.log('user', user);
+      if (!user.objetivos_verificados) {
+        res.redirect('/objectives/view')
+      } else {
+        res.redirect('/profile');
+      }       
+      // Foods.find({diet:theMenu._id})
+      //   .then(foods=>{
+      //     console.log('foods',foods)
+      //     res.render('/profile', { foods })
+      //   })
+
     });
   })(req, res);
 };

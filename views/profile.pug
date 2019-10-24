@@ -2,3 +2,7 @@ extends layout
 
 block content
   h1 estas en el profile modificado
+
+  ul
+    each food in foods
+      li=food.name

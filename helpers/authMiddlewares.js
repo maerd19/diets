@@ -16,7 +16,6 @@ exports.restrictAuth = (req, res, next) => {
   }
   return next();
 }
-// exports.restrictAuth = (req, res, next) => (req.isAuthenticated()) ? res.redirect('/profile') : next();
 
 // If user hasn't already filled objectives form it will be redirected to it
 exports.objectivesFilled = (req, res, next) => {

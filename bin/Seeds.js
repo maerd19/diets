@@ -1,11 +1,11 @@
 ﻿const mongoose = require('mongoose');
-const Food = require('../models/Food');
+const Menus = require('../models/Menus');
 
 const dbtitle = 'library-project';
 mongoose
 	.connect('mongodb://localhost/module2', {useNewUrlParser: true, useUnifiedTopology: true})
 
-const foods = [
+const menus = [
 	{
 		"name": "Tortilla de queso, espinacas y aceitunas",
 		"day": "lunes",
@@ -152,11 +152,11 @@ const foods = [
 	}
 ]
 
-const createFoods = foods.map(food => {
-  const newFood = new Food(food)
-  return newFood.save()
-  .then(food => {
-    return food.name;
+const createMenus = menus.map(map => {
+  const newMenu = new Menus(menu)
+  return newMenu.save()
+  .then(menu => {
+    console.log(menu.name);
   })
   .catch(error => {
     throw new Error(`Impossible to add the author. ${error}`)

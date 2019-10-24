@@ -67,15 +67,18 @@ exports.registerObjectivesInfo = (req, res) => {
   if (gender == 'man' && exercise == true  && objectives == 'slim') diet = 'basal';
   if (gender == 'man' && exercise == false && objectives == 'muscle') diet = 'basal';
   if (gender == 'man' && exercise == true && objectives == 'muscle') diet = 'basal';
-  console.log('asds111111111adasdas',diet)
+  // console.log('asds111111111adasdas',diet)
   Menus.findOne({'name': 'basal'})
     .then(theMenu => {
       console.log('asdsadasdas',theMenu)
-      User.findByIdAndUpdate({_id:objectives.user},{$set:{diet:theMenu._id,objetivos_verificados: true }}, {new: true} ).then(()=>console.log('readyUser')).catch(err=>console.log('el error',err))
-      Foods.find({diet:theMenu._id}).then(food=>{
-        console.log('foods',food)
-        res.redirect('/profile')
-      })
+      User.findByIdAndUpdate({_id:objectives.user},{$set:{diet:theMenu._id,objetivos_verificados: true }}, {new: true} )
+        .then(()=>console.log('readyUser'))
+        .catch(err=>console.log('el error',err))
+      Foods.find({diet:theMenu._id})
+        .then(foods=>{
+          // console.log('foods',foods)
+          res.redirect('/profile');
+        })
     })
     .catch(error => {
       console.log('Error while retrieving menu details: ', error);
@@ -86,11 +89,6 @@ exports.registerObjectivesInfo = (req, res) => {
   //     User.findByIdAndUpdate(user, { $set: { objetivos_verificados: true }}, {new: true} )
   //       .then(user=>console.log('el user act',user))
   //       .catch(err=>console.log('error',err));
-
-      
-      
-  //     res.redirect("/profile");
-  //     // res.status(200).json({ objective });
   //   })
   //   .catch(errorMessage => {
   //     res.render('objectives', { title: 'Objectives', errorMessage });
