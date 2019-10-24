@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  form(action="/foods" class="uk-form-stacked" method="post" id='myForm')
+  form(action=`/foods/form/${id}`  class="uk-form-stacked" method="post" id='myForm')
     .uk-margin
       label(class="uk-form-label" for="name") Platillo
       .uk-inline
@@ -10,8 +10,13 @@ block content
     .uk-margin
       label(class="uk-form-label" for="day") Dia
       .uk-inline
-        span.uk-form-icon(uk-icon='icon: user')
-        input.uk-input(type='text' name='day' id='day')
+        select(name='day')
+              option(value='lunes') Lunes
+              option(value='martes') Martes
+              option(value='miercoles') Miercoles
+              option(value='jueves') Jueves
+              option(value='viernes') Viernes
+              option(value='sabado') Sabado
     .uk-margin
       label(class="uk-form-label" for="ingredientes") Ingredientes
       .uk-inline
@@ -20,8 +25,10 @@ block content
     .uk-margin
       label(class="uk-form-label" for="schedule") Horario
       .uk-inline
-        span.uk-form-icon(uk-icon='icon: user')
-        input.uk-input(type='text' name='schedule' id='schedule')  
+        select(name='schedule')
+              option(value='desayuno') Desayuno
+              option(value='comida') Comida
+              option(value='cena') Cena
     if errorMessage
       .uk-alert-danger.uk-width-1-1(uk-alert)
         p #{errorMessage}

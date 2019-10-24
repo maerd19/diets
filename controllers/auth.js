@@ -9,10 +9,10 @@ exports.login = (req, res) => {
     if (errorMessage) {
       return res.render('login', { errorMessage });
     }
-
-    console.log(req.login);
+    
     req.login(user, err => {
-      res.redirect('/profile');
+      console.log('user', user);
+      (!user.objetivos_verificados) ? res.redirect('/objectives/view') : res.redirect('/profile');
     });
   })(req, res);
 };
@@ -40,12 +40,6 @@ exports.signup = (req, res) => {
   User.register({ username, email }, password)
     .then(usr => {
       res.render('objectives')
-      // const options = {
-      //   filename: "register",
-      //   email: usr.email,
-      //   message: "Valida tu correo",
-      //   subject: "Confirma correo"
-      // };
       send(options);
       req.login(usr, errorMessage => {
         if (errorMessage)
@@ -53,11 +47,6 @@ exports.signup = (req, res) => {
         res.redirect("/home");
       });
     })
-    // .then(usr => {
-    //   req.login(usr, err => {
-    //     res.redirect("/objectives");
-    //   });
-    // })
     .catch(errorMessage => {
       res.render('register', { title: 'Sign Up', errorMessage })
     });

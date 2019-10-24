@@ -1,9 +1,7 @@
 extends layout
 
 block content
-  h1 Menus
-
-  a(href="/menus/form") Creat Menu
+  h1 Foods
 
   //- table(style='width:100%')
   table#myTable  
@@ -22,7 +20,7 @@ block content
           td=food.day
           td=food.ingredientes
           td=food.schedule
-          td=food.diet
+          td=(food.diet) ? `${food.diet.name}` : 'sin nombre'
           td
             a(href="/") Read
             a(href="/") Edit

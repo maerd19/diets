@@ -2,9 +2,10 @@ const Food = require("../models/Food");
 // const { isAuth } = require("../helpers/authMiddlewares");
 
 exports.getAllFood = (req, res) => {
-  Food.find()
+  Food.find().populate('diet')
     .then(allTheFoodFromDB => {
-      console.log(allTheFoodFromDB);      
+      // console.log(allTheFoodFromDB); 
+      console.log(allTheFoodFromDB)     
       res.render('foods', { foods: allTheFoodFromDB });
       // res.status(200).json({ allTheFoodFromDB });
     })
@@ -15,7 +16,8 @@ exports.getAllFood = (req, res) => {
 
 exports.createFoodForm = (req, res) => {
   const { id } = req.params;
-  res.render('food-form');
+
+res.render('food-form',{ id });
 }
 
 exports.getFood = (req, res) => {
@@ -31,11 +33,18 @@ exports.getFood = (req, res) => {
 };
 
 exports.createFood = (req, res) => {
-  const { name, day, ingredientes, schedule, diet } = req.body;
-  Food.create({ name, day, ingredientes, schedule, diet }) 
+  let comidita = req.body
+  const { id } = req.params;
+  let diet = id;  
+  
+  comidita_Id = { ...comidita, diet }
+  // console.log(comidita_Id);
+  
+  const { name, day, ingredientes, schedule } = req.body;
+  Food.create(comidita_Id) 
     .then(food => {
-    res.status(200).json({ food });
-    // res.redirect('/foods');
+      // res.status(200).json({ food });
+      res.redirect('/foods');
     })
 };
 

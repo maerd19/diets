@@ -27,6 +27,10 @@ const userSchema = new Schema(
     diet: {
       type: Schema.Types.ObjectId,
       ref: 'Menus'
+    },
+    objetivos_verificados: {
+      type: Boolean,
+      default: false
     }
   }, 
   { timestamps: true }

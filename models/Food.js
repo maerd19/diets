@@ -21,9 +21,7 @@ const foodsSchema = new Schema(
     },    
     diet: {
       type: Schema.Types.ObjectId,
-      reference: "Menus",
-      // type: String,
-      // required: true
+      ref: "Menus",
     },
     photo: {
       type: [String],

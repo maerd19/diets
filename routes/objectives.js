@@ -1,19 +1,17 @@
 const express = require('express');
 const objectivesControllers = require('./../controllers/objectives');
+const { isAuth } = require('../helpers/authMiddlewares');
 
 const router = express.Router();
-// const { isAuth } = require('../helpers/authMiddlewares');
 
 router
   .route('/')
-  // .get(isAuth, objectivesControllers.displayRegisterObjectives)
-  // .post(isAuth, objectivesControllers.registerObjectivesInfo);
-  .get(objectivesControllers.displayRegisterObjectives)
-  .post(objectivesControllers.registerObjectivesInfo)
+  .get(isAuth, objectivesControllers.displayRegisterObjectives)
+  .post(isAuth, objectivesControllers.registerObjectivesInfo)
 
 router
-  .route('/view/')
-  .get(objectivesControllers.renderView);
+  .route('/view')
+  .get(isAuth, objectivesControllers.renderView);
 
   // router
   // .route('/:id')

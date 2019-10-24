@@ -1,12 +1,13 @@
 const express = require("express");
 const menuController = require('../controllers/menu');
+const { isAuth } = require('../helpers/authMiddlewares');
 
 const router = express.Router();
 
 router
   .route('/')
-  .get(menuController.getAllMenus)
-  .post(menuController.createMenu)
+  .get(isAuth, menuController.getAllMenus)
+  .post(isAuth, menuController.createMenu)
 
 router
   .route('/form')
@@ -15,12 +16,12 @@ router
 
 router
   .route('/delete/:id')
-  .get(menuController.deleteMenu);
+  .get(isAuth, menuController.deleteMenu);
 
   router
   .route('/:id')
-  .get(menuController.getMenu)
-  .patch(menuController.updateMenu)
+  .get(isAuth, menuController.getMenu)
+  .patch(isAuth, menuController.updateMenu)
 
 
 module.exports = router;

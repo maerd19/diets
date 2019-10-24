@@ -1,7 +1,8 @@
 const Objectives = require('../models/Objectives');
+const User = require('../models/User');
+const Menus = require('../models/Menus');
 
 exports.displayRegisterObjectives = (req, res) => {
-  // res.render('objectives');
   // const { id } = req.params;
   Objectives.find().populate('diet')
     .then(allTheFoodFromDB => {
@@ -19,11 +20,12 @@ exports.renderView = (req, res) => {
 }
 
 exports.registerObjectivesInfo = (req, res) => {
-  // console.log(req.body);
   
   let { gender, age, weight, height, exercise, objectives } = req.body;
-  // const { gender, age, weight, height, exercise, objectives, user } = req.body;
-  // const { user: { _id: user } } = req;
+  const { user: { _id: user } } = req;
+
+  console.log('user info', req.user);
+
 
   if (!gender || !age || !weight || !height || !exercise || !objectives) {
     let errorMessage = 'All fields are required to be filled';
@@ -38,14 +40,36 @@ exports.registerObjectivesInfo = (req, res) => {
     weight, 
     height, 
     exercise, 
-    objectives/*,
-    user*/
+    objectives,
+    user
   }
 
-  console.log(objectives);
+  let diet = '';
+  // woman
+  if (gender == 'woman' && exercise == false && objectives == 'slim') diet = 'low_carbs';
+  if (gender == 'woman' && exercise == true  && objectives == 'slim') diet = 'vegan';
+  if (gender == 'woman' && exercise == false && objectives == 'muscle') diet = 'keto';
+  if (gender == 'woman' && exercise == true && objectives == 'muscle') diet = 'macros';
+  // man
+  if (gender == 'man' && exercise == false && objectives == 'slim') diet = 'low_carbs';
+  if (gender == 'man' && exercise == true  && objectives == 'slim') diet = 'vegan';
+  if (gender == 'man' && exercise == false && objectives == 'muscle') diet = 'keto';
+  if (gender == 'man' && exercise == true && objectives == 'muscle') diet = 'basal';
+
+  Menus.findOne({'name': diet})
+    .then(theMenu => {
+      res.status(200).json({ theMenu });
+    })
+    .catch(error => {
+      console.log('Error while retrieving menu details: ', error);
+    })
 
   Objectives.create(objectives)
     .then(objective => {
+      User.findByIdAndUpdate(user, { $set: { objetivos_verificados: true }}, {new: true} )
+        .then(user=>console.log('el user act',user))
+        .catch(err=>console.log('error',err));  
+      
       res.redirect("/profile");
       // res.status(200).json({ objective });
     })
