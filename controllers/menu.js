@@ -2,10 +2,11 @@ const Menu = require("../models/Menus");
 const { isAuth } = require("../helpers/authMiddlewares");
 
 exports.getAllMenus = (req, res) => {
+  const { user } = req;
   Menu.find()
     .then(allTheMenusFromDB => {
       console.log(allTheMenusFromDB);
-      res.render('menus', { menus: allTheMenusFromDB });
+      res.render('menus', { user, menus: allTheMenusFromDB });
       // res.status(200).json({ allTheMenusFromDB });
     })
     .catch(error => {
@@ -14,7 +15,9 @@ exports.getAllMenus = (req, res) => {
 };
 
 exports.createMenuForm = (req, res) => {
-  res.render('menu-form');
+  const { user } = req;
+
+  res.render('menu-form', { user });
 }
 
 exports.getMenu = (req, res) => {

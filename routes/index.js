@@ -8,17 +8,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.get("/home", isAuth, (req, res) => {
-  // const { user } = req;
-  // Auction.find()
-  //   .populate({
-  //     path: "lider",
-  //     populate: {
-  //       path: "author"
-  //     }
-  //   })
-  //   .then(auctions => {
-  //     res.render("home", { user, auctions });
-  //   });
   res.render('home');
 });
 

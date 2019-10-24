@@ -4,10 +4,12 @@ const zxcvbn = require('zxcvbn');
 // const { send } = require('../helpers/mailer');
 
 exports.login = (req, res) => {
+  const { user } = req;
+
   passport.authenticate('local', (err, user, info = {}) => {
     const { message: errorMessage } = info;
     if (errorMessage) {
-      return res.render('login', { errorMessage });
+      return res.render('login', { user, errorMessage });
     }
     
     req.login(user, err => {
@@ -18,23 +20,25 @@ exports.login = (req, res) => {
 };
 
 exports.signup = (req, res) => {
+  const { user } = req;
+
   let { username, password, email } = req.body;
   let { score, feedback } = zxcvbn(password);
   
   // console.log(zxcvbn(password));
   if (score == 0) {
     let errorMessage = `${feedback.warning}. ${feedback.suggestions.reduce( (acc, cur) => acc + cur, '')}`;
-    return res.render('register', { title: 'Sign Up', errorMessage });
+    return res.render('register', { user, title: 'Sign Up', errorMessage });
   }
 
   if (password !== req.body['confirm-pass']) {
     let errorMessage = 'Make sure to enter the same password';
-    return res.render('register', { title: 'Sign Up', errorMessage });
+    return res.render('register', { user, title: 'Sign Up', errorMessage });
   }
 
   if (!username || !password || !email) {
     let errorMessage = 'Username, e-mail and password are required';
-    return res.render('register', { title: 'Sign Up', errorMessage });
+    return res.render('register', { user, title: 'Sign Up', errorMessage });
   }
 
   User.register({ username, email }, password)
@@ -43,11 +47,11 @@ exports.signup = (req, res) => {
       send(options);
       req.login(usr, errorMessage => {
         if (errorMessage)
-          return res.render("register", { title: "Sign Up", errorMessage });
+          return res.render("register", { user, title: "Sign Up", errorMessage });
         res.redirect("/home");
       });
     })
     .catch(errorMessage => {
-      res.render('register', { title: 'Sign Up', errorMessage })
+      res.render('register', { user, title: 'Sign Up', errorMessage })
     });
 }

@@ -1,3 +1,5 @@
 exports.renderView = (req, res) => {
-  res.render('profile');
+  const { user } = req;
+
+  res.render('profile', { user });
 }
