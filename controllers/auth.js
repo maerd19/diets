@@ -58,7 +58,7 @@ exports.signup = (req, res) => {
       req.login(usr, errorMessage => {
         if (errorMessage)
           return res.render("register", { user, title: "Sign Up", errorMessage });
-        res.redirect("/home");
+        res.redirect("/profile");
       });
     })
     .catch(errorMessage => {

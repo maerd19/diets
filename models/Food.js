@@ -23,8 +23,9 @@ const foodsSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Menus",
     },
-    photo: {
+    images: {
       type: [String],
+      minlength: 1,
       required: true
     }
   },
