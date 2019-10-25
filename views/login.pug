@@ -3,7 +3,7 @@ extends layout
 include mixins/_authform
 
 block content
-  section.uk-section
-    .uk-container.uk-flex.uk-flex-center
+  section.uk-section.uk-flex
+    .uk-container.uk-flex.uk-flex-center.logs.uk-flex-middle
       .uk-width-1-2.uk-flex.uk-flex-center
         +authform(false, errorMessage)

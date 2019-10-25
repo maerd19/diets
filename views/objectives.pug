@@ -2,12 +2,13 @@ extends layout
 
 block content
   section.uk-section
-    .uk-container.uk-flex.uk-flex-center
+    .uk-container.uk-flex.uk-flex-center.logs
       .uk-width-1-2.uk-flex.uk-flex-center
         form(action="/objectives", method="post")
           //- Gender
           .uk-margin
           label(class='uk-form-label' for='gender') Gender
+<<<<<<< HEAD
           .uk-inline
             select(name='gender')
               option(value='man') Hombre
@@ -15,9 +16,22 @@ block content
           //- Age
           .uk-margin
           label(class='uk-form-label' for='age') Edad
+=======
+         
+            .uk-margin.uk-grid-small.uk-child-width-auto.uk-grid
+              label
+                input.uk-ratio(type='radio',name="male", )
+                |  Hombre
+              label
+                input.uk-ratio(type='radio' ,name="female")
+                |  Mujer
+          //- Age
+          .uk-margin
+          label(class='uk-form-label' for='age') Birthday   
+>>>>>>> origin/onviews
           .uk-inline
-            span.uk-form-icon(uk-icon='icon: clock')
-            input.uk-input(type='text' name='age' id='age')
+            span.uk-form-icon(uk-icon='icon: calendar')
+            input.uk-input(type='date' name='age' id='age')
           //- weight
           .uk-margin
           label(class='uk-form-label' for='weight') Peso
@@ -48,5 +62,5 @@ block content
           if errorMessage
             .uk-alert-danger.uk-width-1-1(uk-alert)
               p #{errorMessage}
-          button.uk-button.uk-button-primary Register objectives
+          button.uk-button.uk-button-primary.uk-margin-top Register objectives
           
