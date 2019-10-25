@@ -2,7 +2,7 @@ const Objectives = require('../models/Objectives');
 const User = require('../models/User');
 const Menus = require('../models/Menus');
 const Foods = require('../models/Food');
-
+//foggy
 exports.displayRegisterObjectives = (req, res) => {
   
   // const { id } = req.params;
