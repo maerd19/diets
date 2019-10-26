@@ -12,12 +12,6 @@ block content
             select(name='gender')
               option(value='man') Hombre
               option(value='woman') Mujer
-          //- Age
-          .uk-margin
-          label(class='uk-form-label' for='age') Edad
-          .uk-inline
-            span.uk-form-icon(uk-icon='icon: calendar')
-            input.uk-input(type='date' name='age' id='age')
           //- weight
           .uk-margin
           label(class='uk-form-label' for='weight') Peso
@@ -38,11 +32,11 @@ block content
               //- option(value='man') Hombre
               option(value='Si') Si
               option(value='No') No
-          //- objectives
+          //- objectivesF
           .uk-margin
-          label(class='uk-form-label' for='objectives') Objetivos
+          label(class='uk-form-label' for='objectivesF') Objetivos
           .uk-inline
-            select(name='objectives')
+            select(name='objectivesF')
               option(value='muscle') Adelgazar
               option(value='slim') Ganar Musculatura
           if errorMessage

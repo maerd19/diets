@@ -25,52 +25,50 @@ exports.renderView = (req, res) => {
 
 exports.registerObjectivesInfo = (req, res) => {
   
-  let { gender, age, weight, height, exercise, objectives } = req.body;
+  let { gender, weight, height, exercise, objectivesF } = req.body;
   const { user: { _id: user } } = req;
 
-  console.log('user info', req.user);
+  // console.log('user info', req.user);
 
 
-  if (!gender || !age || !weight || !height || !exercise || !objectives) {
+  if (!gender || !weight || !height || !exercise || !objectivesF) {
     let errorMessage = 'All fields are required to be filled';
     return res.render('objectives', { user, title: 'Objectives', errorMessage });
   }
-
+  
   exercise = (exercise == 'Si') ? true : false;
 
   objectives = {
     gender,
-    age, 
     weight, 
     height, 
     exercise, 
-    objectives,
+    objectivesF,
     user
   }
 
   let diet = '';
   // woman
-  // if (gender == 'woman' && exercise == false && objectives == 'slim') diet = 'low_carbs';
-  // if (gender == 'woman' && exercise == true  && objectives == 'slim') diet = 'vegan';
-  // if (gender == 'woman' && exercise == false && objectives == 'muscle') diet = 'keto';
-  // if (gender == 'woman' && exercise == true && objectives == 'muscle') diet = 'macros';
-  // // man
-  // if (gender == 'man' && exercise == false && objectives == 'slim') diet = 'low_carbs';
-  // if (gender == 'man' && exercise == true  && objectives == 'slim') diet = 'vegan';
-  // if (gender == 'man' && exercise == false && objectives == 'muscle') diet = 'keto';
-  if (gender == 'woman' && exercise == false && objectives == 'slim') diet = 'basal';
-  if (gender == 'woman' && exercise == true  && objectives == 'slim') diet = 'basal';
-  if (gender == 'woman' && exercise == false && objectives == 'muscle') diet = 'basal';
-  if (gender == 'woman' && exercise == true && objectives == 'muscle') diet = 'basal';
+  console.log(`gender: ${gender}, exercise: ${exercise}, objectivesF: ${objectivesF}`);
+  if (gender === 'woman' && exercise === false && objectivesF === 'slim') diet = 'low_carbs';
+  if (gender === 'woman' && exercise === true  && objectivesF === 'slim') diet = 'vegan';
+  if (gender === 'woman' && exercise === false && objectivesF === 'muscle') diet = 'keto';
+  if (gender === 'woman' && exercise === true && objectivesF === 'muscle') diet = 'macros';
   // man
-  if (gender == 'man' && exercise == false && objectives == 'slim') diet = 'basal';
-  if (gender == 'man' && exercise == true  && objectives == 'slim') diet = 'basal';
-  if (gender == 'man' && exercise == false && objectives == 'muscle') diet = 'basal';
-  if (gender == 'man' && exercise == true && objectives == 'muscle') diet = 'basal';
-  // console.log('asds111111111adasdas',diet)
-  Menus.findOne({'name': 'basal'})
+  if (gender === 'man' && exercise === false && objectivesF === 'slim') diet = 'low_carbs';
+  if (gender === 'man' && exercise === true  && objectivesF === 'slim') {
+    console.log('entraste a donde te corresponde perro!');
+    diet = 'vegan';
+    console.log('diet', diet);
+  }
+  if (gender === 'man' && exercise === false && objectivesF === 'muscle') diet = 'keto';
+  if (gender === 'man' && exercise === true && objectivesF === 'muscle') diet = 'basal';
+  
+  console.log(diet);
+  
+  Menus.findOne({'name': diet})
     .then(theMenu => {
-      console.log('asdsadasdas',theMenu)
+      // console.log('asdsadasdas',theMenu)
       User.findByIdAndUpdate({_id:objectives.user},{$set:{diet:theMenu._id,objetivos_verificados: true }}, {new: true} )
         .then(()=>console.log('readyUser'))
         .catch(err=>console.log('el error',err))
@@ -84,13 +82,13 @@ exports.registerObjectivesInfo = (req, res) => {
       console.log('Error while retrieving menu details: ', error);
     })
 
-  // Objectives.create(objectives)
-  //   .then(objective => {
-  //     User.findByIdAndUpdate(user, { $set: { objetivos_verificados: true }}, {new: true} )
-  //       .then(user=>console.log('el user act',user))
-  //       .catch(err=>console.log('error',err));
-  //   })
-  //   .catch(errorMessage => {
-  //     res.render('objectives', { title: 'Objectives', errorMessage });
-  //   })
+  Objectives.create(objectives)
+    .then(objective => {
+      User.findByIdAndUpdate(user, { $set: { objetivos_verificados: true }}, {new: true} )
+        .then(user=>console.log('el user act',user))
+        .catch(err=>console.log('error',err));
+    })
+    .catch(errorMessage => {
+      res.render('objectives', { title: 'Objectives', errorMessage });
+    })
 }
