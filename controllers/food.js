@@ -37,12 +37,12 @@ exports.getFood = (req, res) => {
 exports.createFood = (req, res) => {
   let comidita = req.body
   const { id } = req.params;
-  let diet = id;  
+  let diet = id;
+  const images = req.files.map(file => file.secure_url);
   
-  comidita_Id = { ...comidita, diet }
-  // console.log(comidita_Id);
-  
-  const { name, day, ingredientes, schedule } = req.body;
+  comidita_Id = { ...comidita, diet, images }
+  console.log(comidita_Id);
+
   Food.create(comidita_Id) 
     .then(food => {
       // res.status(200).json({ food });

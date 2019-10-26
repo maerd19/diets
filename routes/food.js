@@ -1,6 +1,7 @@
 const express = require("express");
 const foodController = require('./../controllers/food');
 const { isAuth } = require('../helpers/authMiddlewares');
+const uploader = require("../helpers/multer");
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router
 router
   .route('/form/:id')
   .get(isAuth, foodController.createFoodForm)
-  .post(isAuth, foodController.createFood)
+  .post(isAuth, uploader.array("images"), foodController.createFood)
 
 
 router

@@ -1,12 +1,13 @@
 extends layout
 
 block content
-  form(action=`/foods/form/${id}`  class="uk-form-stacked" method="post" id='myForm')
+  form(action=`/foods/form/${id}`  class="uk-form-stacked" method="post" id='myForm' enctype="multipart/form-data")
     .uk-margin
       label(class="uk-form-label" for="name") Platillo
       .uk-inline
         span.uk-form-icon(uk-icon='icon: user')
         input.uk-input(type='text' name='name' id='name')
+    
     .uk-margin
       label(class="uk-form-label" for="day") Dia
       .uk-inline
@@ -29,6 +30,9 @@ block content
               option(value='desayuno') Desayuno
               option(value='comida') Comida
               option(value='cena') Cena
+    .uk-margin
+      label(class="uk-form-label" for="images") Images
+      input.uk-input(type='file' name="images" multiple)
     if errorMessage
       .uk-alert-danger.uk-width-1-1(uk-alert)
         p #{errorMessage}
