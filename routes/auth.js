@@ -23,4 +23,8 @@ router.get('/logout', (req, res) => {
   res.redirect('/login');
 })
 
+router.get('/', (req, res) => {
+  res.render('home', {title: 'Login' });
+})
+
 module.exports = router;
