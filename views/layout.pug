@@ -23,12 +23,12 @@ html(lang="en")
       .uk-navbar-left
         ul.uk-navbar-nav
           li.uk-active
-            a(href='/profile') Profile
+            a(href='/profile') #{user ? 'profile':''}
               img(class="logo" src='/images/alicia_logo.svg', alt='')
           li.uk-active
-            a(href='/menus') Menus
+            a(href='/menus') #{user ? 'Menus':''} 
           li.uk-active
-            a(href='/foods') Comidas
+            a(href='/foods') #{user ? 'Comidas':''} 
           
       .uk-navbar-right
         ul.uk-navbar-nav

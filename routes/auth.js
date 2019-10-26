@@ -5,7 +5,7 @@ const { restrictAuth } = require('../helpers/authMiddlewares');
 
 // Login
 router.get('/login', restrictAuth, (req, res) => {
-  res.render('login', {title: 'Login' });
+  res.render('login', {title: 'Login',user:req.user });
 });
 
 router.post('/login', restrictAuth, authControllers.login);

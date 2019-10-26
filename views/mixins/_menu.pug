@@ -7,11 +7,12 @@ mixin menu(foods)
               h3.uk-card-title=food.name
               p=food.diet
               p=food.schedule
+              //- ul
+              //-   each ingrediente in food.ingredientes
+              //-     li=ingrediente
               ul
-                each ingrediente in food.ingredientes
-                  li=ingrediente
-                //- ul.uk-slideshow-items
-                //-   each image in food.images
-                //-     li
-                //-       img(src=image, alt="")
+
+                each image in food.images
+                   img(src=image, alt="")
+                      //- img(src=image, alt="")
         
