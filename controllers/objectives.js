@@ -81,7 +81,8 @@ exports.registerObjectivesInfo = (req, res) => {
     .catch(error => {
       console.log('Error while retrieving menu details: ', error);
     })
-
+  
+  console.log('Esto es lo que va a llenar', objectives);
   Objectives.create(objectives)
     .then(objective => {
       User.findByIdAndUpdate(user, { $set: { objetivos_verificados: true }}, {new: true} )

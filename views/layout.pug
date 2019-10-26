@@ -26,9 +26,9 @@ html(lang="en")
             a(href='/profile') #{user ? 'profile':''}
               img(class="logo" src='/images/alicia_logo.svg', alt='')
           li.uk-active
-            a(href='/menus') #{user ? 'Menus':''} 
+            a(href='/menus') #{user ? user.type=='admin' ? 'Menus':'' : ''} 
           li.uk-active
-            a(href='/foods') #{user ? 'Comidas':''} 
+            a(href='/foods') #{user ? user.type=='admin' ? 'Comidas':'' : ''} 
           
       .uk-navbar-right
         ul.uk-navbar-nav

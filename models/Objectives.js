@@ -9,8 +9,7 @@ const objectivesShema = new Schema(
       required: true
     },
     age: {
-      type: Number,
-      required: true
+      type: Number
     },
     weight: {
       type: Number,
@@ -24,7 +23,7 @@ const objectivesShema = new Schema(
       type: Boolean,
       required: true
     },
-    objectives: {
+    objectivesF: {
       type: String,
       required: true
     },
