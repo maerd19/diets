@@ -59,4 +59,13 @@ h1 {
 .card-style h3 {
   text-transform: capitalize; }
 
+.icon {
+  height: 50px;
+  width: 50px;
+  margin: auto; }
+
+.icon img {
+  height: 100%;
+  width: 100%; }
+
 /*# sourceMappingURL=style.css.map */
