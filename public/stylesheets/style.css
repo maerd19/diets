@@ -5,23 +5,30 @@
 
 body {
   font-family: "Raleway";
-  background-image: url(/images/back.svg);
-  background-size: 100%;
-  height: 100vh;
   width: 100%;
   background-repeat: no-repeat; }
 
 a {
-  color: #000; }
+  color: white; }
 
 input {
   border: 1px solid #f2c029; }
+
+h1 {
+  font-size: 30px; }
 
 .logo {
   width: 45%; }
 
 .uk-navbar-container:not(.uk-navbar-transparent) {
-  background: #f6f4ea; }
+  background: #f2c029;
+  color: white; }
+
+.main-logs {
+  background-image: url(/images/back.svg);
+  background-size: 100%;
+  height: 100vh;
+  width: 100%; }
 
 .logs {
   background-color: rgba(255, 255, 255, 0.858);
@@ -35,5 +42,21 @@ input {
 .uk-button-primary:hover {
   background-color: #f2c029;
   opacity: 0.8; }
+
+.super-container {
+  margin: 30px; }
+
+.uk-container .subtitle {
+  text-transform: capitalize;
+  text-decoration: underline;
+  color: #f2c029; }
+
+.card-style {
+  width: 500px;
+  border-radius: 20px;
+  border: 6px solid #f2c029; }
+
+.card-style h3 {
+  text-transform: capitalize; }
 
 /*# sourceMappingURL=style.css.map */
