@@ -1,23 +1,24 @@
 extends layout
 
 block content
-  h1 Menus
+  section.uk-container.uk-margin-large-top
+    h1 Menus
 
   a(href="/menus/form") Create Menu
 
-  //- table(style='width:100%')
-  table#myTable  
-    thead
-      tr
-        th Name
-        th Ranking
-        th Actions
-    tbody
-      each menu in menus
+    //- table(style='width:100%')
+    table#myTable.uk-table.uk-table-striped.table.uk-table-hover 
+      thead
         tr
-          td=menu.name
-          td=menu.ranking
-          td
-            a(href=`/foods/form/${menu._id}`) Create Food
-            a(href="/") Edit
-            a(href=`/menus/delete/${menu._id}`) Delete
+          th Nombre
+          th Ranking
+          th Acciones
+      tbody
+        each menu in menus
+          tr
+            td=menu.name
+            td=menu.ranking
+            td
+              a(href=`/foods/form/${menu._id}`) Crear comida / 
+              a(href="/") Editar / 
+              a(href=`/menus/delete/${menu._id}`) Eliminar

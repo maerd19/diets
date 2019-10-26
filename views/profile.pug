@@ -1,8 +1,7 @@
 extends layout
 
-block content
-  h1 estas en el profile modificado
+include mixins/_menu
 
-  ul
-    each food in foods
-      li=food.name
+block content
+  section.super-container.uk-flex.uk-flex-between.uk-flex-wrap 
+    +menu(foods)

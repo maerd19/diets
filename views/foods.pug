@@ -1,27 +1,28 @@
 extends layout
 
 block content
-  h1 Foods
+  section.uk-container.uk-margin-large-top
+    h1 Comidas
 
-  //- table(style='width:100%')
-  table#myTable  
-    thead
-      tr
-        th Nombre
-        th Dia
-        th Ingredientes
-        th Horario
-        th Dieta
-
-    tbody
-      each food in foods
+    //- table(style='width:100%')
+    table#myTable.uk-table.uk-table-hover.uk-table-striped  
+      thead
         tr
-          td=food.name
-          td=food.day
-          td=food.ingredientes
-          td=food.schedule
-          td=(food.diet) ? `${food.diet.name}` : 'sin nombre'
-          td
-            a(href="/") Read
-            a(href="/") Edit
-            a(href="/") Delete
+          th Nombre
+          th Dia
+          th Ingredientes
+          th Horario
+          th Dieta
+
+      tbody
+        each food in foods
+          tr
+            td=food.name
+            td=food.day
+            td=food.ingredientes
+            td=food.schedule
+            td=(food.diet) ? `${food.diet.name}` : 'sin nombre'
+            td
+              a(href="/") Leer / 
+              a(href="/") Editar / 
+              a(href="/") Eliminar

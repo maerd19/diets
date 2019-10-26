@@ -1,15 +1,17 @@
-mixin menu(days)
-  h1 {Days}
-  section
-    div(class='uk-child-width-1-2@m', uk-grid='')
-      div
-        .uk-card.uk-card-default
-          .uk-card-media-top
-           img(src='images/light.jpg', alt='')
-        .uk-card-body
-          h1=days.name 
-          h3.uk-card-title=days.schedule
-          ul
-            each ingredient in days.Ingredientes
-              li=ingredient
-    
+mixin menu(foods)
+  each food in foods
+      section.uk-container.uk-flex.uk-flex-column
+        .uk-flex-column.uk-margin-top.uk-grid-match(class='uk-child-width-1-3', uk-grid='')
+            h1.subtitle=food.day
+            .uk-card.uk-card-hover.uk-card-body.card-style
+              h3.uk-card-title=food.name
+              p=food.diet
+              p=food.schedule
+              ul
+                each ingrediente in food.ingredientes
+                  li=ingrediente
+                //- ul.uk-slideshow-items
+                //-   each image in food.images
+                //-     li
+                //-       img(src=image, alt="")
+        
